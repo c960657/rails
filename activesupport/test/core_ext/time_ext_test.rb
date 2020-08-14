@@ -150,11 +150,15 @@ class TimeExtCalculationsTest < ActiveSupport::TestCase
   end
 
   def test_beginning_of_hour
-    assert_equal Time.local(2005, 2, 4, 19, 0, 0), Time.local(2005, 2, 4, 19, 30, 10).beginning_of_hour
+    assert_equal Time.local(2005, 2, 4, 19, 0, 0), Time.local(2005, 2, 4, 19, 30, 10, 500000).beginning_of_hour
   end
 
   def test_beginning_of_minute
-    assert_equal Time.local(2005, 2, 4, 19, 30, 0), Time.local(2005, 2, 4, 19, 30, 10).beginning_of_minute
+    assert_equal Time.local(2005, 2, 4, 19, 30, 0), Time.local(2005, 2, 4, 19, 30, 10, 500000).beginning_of_minute
+  end
+
+  def test_beginning_of_second
+    assert_equal Time.local(2005, 2, 4, 19, 30, 10), Time.local(2005, 2, 4, 19, 30, 10, 500000).beginning_of_second
   end
 
   def test_end_of_day
@@ -173,11 +177,15 @@ class TimeExtCalculationsTest < ActiveSupport::TestCase
   end
 
   def test_end_of_hour
-    assert_equal Time.local(2005, 2, 4, 19, 59, 59, Rational(999999999, 1000)), Time.local(2005, 2, 4, 19, 30, 10).end_of_hour
+    assert_equal Time.local(2005, 2, 4, 19, 59, 59, Rational(999999999, 1000)), Time.local(2005, 2, 4, 19, 30, 10, 500000).end_of_hour
   end
 
   def test_end_of_minute
-    assert_equal Time.local(2005, 2, 4, 19, 30, 59, Rational(999999999, 1000)), Time.local(2005, 2, 4, 19, 30, 10).end_of_minute
+    assert_equal Time.local(2005, 2, 4, 19, 30, 59, Rational(999999999, 1000)), Time.local(2005, 2, 4, 19, 30, 10, 500000).end_of_minute
+  end
+
+  def test_end_of_second
+    assert_equal Time.local(2005, 2, 4, 19, 30, 10, Rational(999999999, 1000)), Time.local(2005, 2, 4, 19, 30, 10, 500000).end_of_second
   end
 
   def test_ago

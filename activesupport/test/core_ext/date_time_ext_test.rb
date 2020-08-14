@@ -135,6 +135,14 @@ class DateTimeExtCalculationsTest < ActiveSupport::TestCase
     assert_equal DateTime.civil(2005, 2, 4, 19, 30, Rational(59999999999, 1000000000)), DateTime.civil(2005, 2, 4, 19, 30, 10).end_of_minute
   end
 
+  def test_beginning_of_second
+    assert_equal DateTime.civil(2005, 2, 4, 19, 30, 0), DateTime.civil(2005, 2, 4, 19, 30, 10.5).beginning_of_second
+  end
+
+  def test_end_of_second
+    assert_equal DateTime.civil(2005, 2, 4, 19, 30, Rational(59999999999, 1000000000)), DateTime.civil(2005, 2, 4, 19, 30, 10.5).end_of_second
+  end
+
   def test_end_of_month
     assert_equal DateTime.civil(2005, 3, 31, 23, 59, Rational(59999999999, 1000000000)), DateTime.civil(2005, 3, 20, 10, 10, 10).end_of_month
     assert_equal DateTime.civil(2005, 2, 28, 23, 59, Rational(59999999999, 1000000000)), DateTime.civil(2005, 2, 20, 10, 10, 10).end_of_month

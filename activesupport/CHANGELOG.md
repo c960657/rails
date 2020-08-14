@@ -1,3 +1,7 @@
+*   Added `beginning_of_second` and `end_of_second` to `Time` and `DateTime`
+
+    *Christian Schmidt*
+
 *   Fixed issue in `ActiveSupport::Cache::RedisCacheStore` not passing options
     to `read_multi` causing `fetch_multi` to not work properly
 

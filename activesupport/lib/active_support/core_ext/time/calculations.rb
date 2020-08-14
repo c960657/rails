@@ -257,6 +257,20 @@ class Time
   end
   alias :at_end_of_minute :end_of_minute
 
+  # Returns a new Time representing the start of the second (x:xx:xx.000000)
+  def beginning_of_second
+    change(usec: 0)
+  end
+  alias :at_beginning_of_second :beginning_of_second
+
+  # Returns a new Time representing the end of the second, x:xx:xx.999999
+  def end_of_second
+    change(
+      usec: Rational(999999999, 1000)
+    )
+  end
+  alias :at_end_of_second :end_of_second
+
   def plus_with_duration(other) #:nodoc:
     if ActiveSupport::Duration === other
       other.since(self)

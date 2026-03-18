@@ -419,4 +419,10 @@ class TrilogyAdapterTest < ActiveRecord::TrilogyTestCase
       ActiveRecord::ConnectionAdapters::TrilogyAdapter.new(prepared_statements: true).connect!
     end
   end
+
+  test "setting init_command raises" do
+    assert_raises ArgumentError do
+      ActiveRecord::ConnectionAdapters::TrilogyAdapter.new(prepared_statements: true).connect!
+    end
+  end
 end

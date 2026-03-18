@@ -87,6 +87,10 @@ module ActiveRecord
           raise ArgumentError, "Trilogy currently doesn't support prepared statements. Remove `prepared_statements: true` from your database configuration."
         end
 
+        if config[:init_command]
+          raise ArgumentError, "Trilogy doesn't support `init_command`."
+        end
+
         super
       end
 
